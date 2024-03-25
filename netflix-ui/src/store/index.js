@@ -80,7 +80,7 @@ export const getUsersLikedMovies = createAsyncThunk(
   "netflix/getLiked",
   async (email, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/user/liked/${email}`);
+      const response = await axios.get(`https://sabreflix1-8.onrender.com/api/user/liked/${email}`);
       return response.data.movies;
     } catch (error) {
   
@@ -94,7 +94,7 @@ export const removeFromLikedMovies = createAsyncThunk(
   async ({ movieId, email }) => {
     const {
       data: { movies },
-    } = await axios.put("http://localhost:5000/api/user/delete", {
+    } = await axios.put("https://sabreflix1-8.onrender.com/api/user/delete", {
       email,
       movieId,
     });
